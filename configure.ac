@@ -801,6 +801,7 @@ CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
 AC_LINK_IFELSE([AC_LANG_PROGRAM([[
   #include <boost/version.hpp>
   #include <boost/thread.hpp>
+  #include <boost/date_time/posix_time/posix_time_types.hpp>
   ]],[[
   #if BOOST_VERSION <= 105600
     choke me
