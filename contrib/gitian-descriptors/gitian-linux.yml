@@ -122,7 +122,7 @@ script: |
     if [ -d "$EXTRA_INCLUDES" ]; then
       export HOST_ID_SALT="$EXTRA_INCLUDES"
     fi
-    make -j4 ${MAKEOPTS} -C ${BASEPREFIX} HOST="${i}"
+    make -j12 ${MAKEOPTS} -C ${BASEPREFIX} HOST="${i}"
     unset HOST_ID_SALT
   done
 
@@ -135,7 +135,7 @@ script: |
   # Create the release tarball using (arbitrarily) the first host
   ./autogen.sh
   CONFIG_SITE=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`/share/config.site ./configure --prefix=/
-  make -j4 dist
+  make -j12 dist
   SOURCEDIST=`echo kore-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
   # Correct tar file order
