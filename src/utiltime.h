@@ -10,6 +10,8 @@
 #include <chrono>
 #include <stdint.h>
 #include <string>
+#include <iomanip>
+#include <ctime>
 
 std::chrono::high_resolution_clock::time_point GetEpochTimePoint();
 int64_t GetTime();
