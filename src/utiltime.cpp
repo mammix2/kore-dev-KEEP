@@ -11,18 +11,12 @@
 #include "tinyformat.h"
 #include "utiltime.h"
 
+#include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/thread.hpp>
 
 using namespace std;
 
 static int64_t nMockTime = 0; //! For unit testing
-
-std::chrono::high_resolution_clock::time_point GetEpochTimePoint() {
-    std::tm t = {};
-    std::istringstream ss("1970-01-01T00:00:00Z");
-    ss >> std::get_time(&t, "%Y-%m-%dT%H:%M:%SZ");
-    return chrono::high_resolution_clock::from_time_t(std::mktime(&t));
-};
 
 int64_t GetTime()
 {
@@ -36,19 +30,18 @@ void SetMockTime(int64_t nMockTimeIn)
     nMockTime = nMockTimeIn;
 }
 
-int64_t GetTimeSeconds()
-{
-    return (chrono::high_resolution_clock::now() - GetEpochTimePoint()) / chrono::seconds(1);
-}
-
 int64_t GetTimeMillis()
 {
-    return (chrono::high_resolution_clock::now() - GetEpochTimePoint()) / chrono::milliseconds(1);
+    return (boost::posix_time::ptime(boost::posix_time::microsec_clock::universal_time()) -
+            boost::posix_time::ptime(boost::gregorian::date(1970, 1, 1)))
+        .total_milliseconds();
 }
 
 int64_t GetTimeMicros()
 {
-    return (chrono::high_resolution_clock::now() - GetEpochTimePoint()) / chrono::microseconds(1);
+    return (boost::posix_time::ptime(boost::posix_time::microsec_clock::universal_time()) -
+            boost::posix_time::ptime(boost::gregorian::date(1970, 1, 1)))
+        .total_microseconds();
 }
 
 void MilliSleep(int64_t n)
@@ -60,20 +53,22 @@ void MilliSleep(int64_t n)
  */
 #if defined(HAVE_WORKING_BOOST_SLEEP_FOR)
     boost::this_thread::sleep_for(boost::chrono::milliseconds(n));
+#elif defined(HAVE_WORKING_BOOST_SLEEP)
+    boost::this_thread::sleep(boost::posix_time::milliseconds(n));
 #else
-    boost::this_thread::sleep(std::chrono::milliseconds(n));
+//should never get here
+#error missing boost sleep implementation
 #endif
 }
 
 std::string DateTimeStrFormat(const char* pszFormat, int64_t nTime)
 {
-    time_t rawtime(nTime);
-    struct tm * timeinfo = localtime (&rawtime);
-    char buffer [80];
-
-    strftime (buffer,80,pszFormat,timeinfo);
-
-    return string(buffer);
+    // std::locale takes ownership of the pointer
+    std::locale loc(std::locale::classic(), new boost::posix_time::time_facet(pszFormat));
+    std::stringstream ss;
+    ss.imbue(loc);
+    ss << boost::posix_time::from_time_t(nTime);
+    return ss.str();
 }
 
 std::string DurationToDHMS(int64_t nDurationTime)
