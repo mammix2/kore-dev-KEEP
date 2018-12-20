@@ -99,7 +99,7 @@ background-color:transparent;
 }
 
 QProgressBar::chunk {
-background-color:#e62e00;
+background-color:#90B8BA;
 width: 20px;
 }
 
@@ -122,7 +122,7 @@ background-color:#dedbe5;
 }
 
 QWidget {
-selection-background-color:#e62e00; /* Object highlight color */
+selection-background-color:#FF5E33; /* Object highlight color */
 selection-color:#ffffff;
 outline:0; /* Remove Annoying Focus Rectangle */
 }
@@ -325,7 +325,7 @@ outline:0;
 
 QHeaderView::section { /* Table Header Sections */
 qproperty-alignment:center;
-background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 0.25, stop: 0 #6C6262, stop: 1 #e62e00);
+background-color:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 0.25, stop: 0 #6C6262, stop: 1 #FF5E33);
 color:#ffffff;
 min-height:25px;
 font-weight:bold;
@@ -358,7 +358,7 @@ font-size:12px;
 }
 
 QTableView::item:selected { /* Table Item Selected */
-background-color:#e62e00;
+background-color:#FF5E33;
 color:#ffffff;
 }
 
@@ -470,7 +470,7 @@ border-radius:10px;
 }
 
 QSlider::sub-page:horizontal {
-background-color:#e62e00;
+background-color:#FF5E33;
 border-color:#c2c2c2;
 border-radius:3px;
 }
@@ -573,7 +573,7 @@ padding-right:10px;
 }
 
 QDialog#SignVerifyMessageDialog QPlainTextEdit { /* Message Signing Text */
-border:1px solid #e62e00;
+border:1px solid #FF5E33;
 background-color:#ffffff;
 }
 
@@ -786,7 +786,7 @@ padding-right:10px;
 }
 
 QDialog#RPCConsole .QGroupBox #line { /* Network In Line */
-background-color:#e62e00;
+background-color:#FF5E33;
 }
 
 QDialog#RPCConsole .QGroupBox #line_2 { /* Network Out Line */
@@ -862,7 +862,7 @@ margin-left:16px;
 QWidget .QFrame#frame .QLabel#labelBalanceText { /* Available Balance Label */
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
-background-color:#e62e00;
+background-color:#FF5E33;
 color:#ffffff;
 margin-right:5px;
 padding-right:5px;
@@ -875,7 +875,7 @@ QWidget .QFrame#frame .QLabel#labelBalance { /* Available Balance */
 qproperty-alignment: 'AlignVCenter | AlignLeft';
 font-size:12px;
 font-weight:bold;
-color:#e62e00;
+color:#FF5E33;
 margin-left:0px;
 }
 
@@ -966,7 +966,7 @@ qproperty-geometry: rect(10 0 431 35);
 QWidget .QFrame#frameObfuscation .QLabel#label_2 { /* Obfuscation Header */
 qproperty-alignment: 'AlignVCenter | AlignRight';
 min-width:160px;
-background-color:#e62e00;
+background-color:#FF5E33;
 color:#ffffff;
 margin-right:5px;
 padding-right:5px;
@@ -1321,7 +1321,7 @@ min-height:27px;
 /**************************** SEND COINS ENTRY ******************************************/
 
 QStackedWidget#SendCoinsEntry .QFrame#SendCoins > .QLabel { /* Send Coin Entry Labels */
-background-color:#e62e00;
+background-color:#FF5E33;
 min-width:102px;
 font-weight:bold;
 font-size:11px;
@@ -1332,7 +1332,7 @@ padding-right:5px;
 }
 
 QStackedWidget#SendCoinsEntry .QFrame#SendCoins .QLabel#amountLabel {
-background-color:#e62e00;
+background-color:#FF5E33;
 }
 
 QStackedWidget#SendCoinsEntry .QValidatedLineEdit#payTo { /* Pay To Input Field */
@@ -1468,7 +1468,7 @@ QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item {
 }
 
 QDialog#CoinControlDialog .CoinControlTreeWidget#treeWidget::item:selected { /* Coin Control Item (selected) */
-background-color:#e62e00;
+background-color:#FF5E33;
 color:#ffffff;
 }
 
@@ -1508,7 +1508,7 @@ background-color:#ffffff;
 }
 
 QWidget#ReceiveCoinsDialog .QFrame#frame2 .QLabel#label_2 { /* Label Label */
-background-color:#e62e00;
+background-color:#FF5E33;
 min-width:102px;
 color:#ffffff;
 font-weight:bold;
@@ -1517,7 +1517,7 @@ padding-right:5px;
 }
 
 QWidget#ReceiveCoinsDialog .QFrame#frame2 .QLabel#label { /* Amount Label */
-background-color:#e62e00;
+background-color:#FF5E33;
 min-width:102px;
 color:#ffffff;
 font-weight:bold;
@@ -1526,7 +1526,7 @@ padding-right:5px;
 }
 
 QWidget#ReceiveCoinsDialog .QFrame#frame2 .QLabel#label_3 { /* Message Label */
-background-color:#e62e00;
+background-color:#FF5E33;
 min-width:102px;
 color:#ffffff;
 font-weight:bold;
@@ -1633,7 +1633,7 @@ border:1px solid #333;
 }
 
 QCalendarWidget QWidget#qt_calendar_navigationbar { /* Calendar widget navigation bar */
-background-color:#e62e00;
+background-color:#FF5E33;
 font-weight:bold;
 }
 
