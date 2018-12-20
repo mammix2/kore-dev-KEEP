@@ -2,7 +2,7 @@
 name: "kore-aarch64-0.12"
 enable_cache: true
 suites:
-- "xenial"
+- "bionic"
 architectures:
 - "amd64"
 packages:
